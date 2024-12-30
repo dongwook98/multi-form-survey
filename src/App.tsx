@@ -1,17 +1,12 @@
 import './App.css';
 import MainLayout from './components/common/MainLayout';
-import Panel, {
-  PanelBody,
-  PanelCap,
-  PanelFooter,
-  PanelHeader,
-} from './components/common/Panel';
 import Tabs, {
   Tab,
   TabContent,
   TabContents,
   TabList,
 } from './components/common/Tabs';
+import QuestionEditor from './components/edit/QuestionEditor';
 
 function App() {
   return (
@@ -23,12 +18,7 @@ function App() {
         </TabList>
         <TabContents>
           <TabContent index={0}>
-            <PanelCap>Cap</PanelCap>
-            <Panel>
-              <PanelHeader>header</PanelHeader>
-              <PanelBody>body</PanelBody>
-              <PanelFooter>footer</PanelFooter>
-            </Panel>
+            <QuestionEditor />
           </TabContent>
           <TabContent index={1}>TabContent 2</TabContent>
         </TabContents>
