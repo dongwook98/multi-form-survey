@@ -6,23 +6,26 @@ import Tabs, {
   TabContents,
   TabList,
 } from './components/common/Tabs';
-import QuestionEditor from './components/edit/QuestionEditor';
+import SectionEditorList from './components/edit/SectionEditorList';
+import { SurveyStoreProvider } from './store';
 
 function App() {
   return (
     <MainLayout>
-      <Tabs>
-        <TabList>
-          <Tab index={0}>tab 1</Tab>
-          <Tab index={1}>tab 2</Tab>
-        </TabList>
-        <TabContents>
-          <TabContent index={0}>
-            <QuestionEditor />
-          </TabContent>
-          <TabContent index={1}>TabContent 2</TabContent>
-        </TabContents>
-      </Tabs>
+      <SurveyStoreProvider>
+        <Tabs>
+          <TabList>
+            <Tab index={0}>tab 1</Tab>
+            <Tab index={1}>tab 2</Tab>
+          </TabList>
+          <TabContents>
+            <TabContent index={0}>
+              <SectionEditorList />
+            </TabContent>
+            <TabContent index={1}>TabContent 2</TabContent>
+          </TabContents>
+        </Tabs>
+      </SurveyStoreProvider>
     </MainLayout>
   );
 }

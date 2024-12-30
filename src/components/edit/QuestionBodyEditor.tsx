@@ -12,7 +12,7 @@ export default function QuestionBodyEditor({ type }: QuestionBodyEditorProps) {
     case 'longText':
     case 'date':
     case 'time':
-      return <Input />;
+      return <Input disabled />;
     case 'multipleChoice':
     case 'checkbox':
     case 'dropdown':

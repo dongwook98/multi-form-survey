@@ -1,3 +1,5 @@
+import { observer } from 'mobx-react-lite';
+
 import { QuestionType } from '../../types/app';
 import Dropdown from '../common/Dropdown';
 import Input from '../common/Input';
@@ -10,15 +12,19 @@ import DropdownIcon from '../../assets/icons/arrow_circle_down.svg?react';
 import DateIcon from '../../assets/icons/calendar_today.svg?react';
 import TimeIcon from '../../assets/icons/schedule.svg?react';
 import QuestionBodyEditor from './QuestionBodyEditor';
-import { useState } from 'react';
+import Question from '../../models/question';
 
-export default function QuestionEditor() {
-  const [type, setType] = useState<QuestionType>('shortText');
+interface Props {
+  question: Question;
+}
+
+const QuestionEditor = observer(function QuestionEditor({ question }: Props) {
   return (
     <Panel>
       <PanelHeader className='flex mb-25'>
         <Input className='flex-1 mr-30' />
         <Dropdown<QuestionType>
+          defaultValue={question.type}
           options={[
             {
               label: (
@@ -84,12 +90,14 @@ export default function QuestionEditor() {
               value: 'time',
             },
           ]}
-          onChange={(value) => setType(value)}
+          onChange={(value) => question.setType(value)}
         />
       </PanelHeader>
       <PanelBody>
-        <QuestionBodyEditor type={type} />
+        <QuestionBodyEditor type={question.type} />
       </PanelBody>
     </Panel>
   );
-}
+});
+
+export default QuestionEditor;
