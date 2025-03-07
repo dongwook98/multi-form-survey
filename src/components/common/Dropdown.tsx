@@ -1,12 +1,14 @@
 import {
   createContext,
   ReactNode,
+  RefObject,
   useCallback,
   useContext,
   useState,
 } from 'react';
 
 import ArrowIcon from '../../assets/icons/arrow_drop_down.svg?react';
+import useOutsideClick from '../../hooks/common/useOutsideClick';
 
 interface DropdownProps<T> {
   defaultValue?: T;
@@ -112,9 +114,13 @@ function DropdownButton({ placeholder = 'select' }: { placeholder?: string }) {
  */
 function DropdownMenu() {
   const { close, opened, options, onChange } = useContext(DropdownContext)!;
+  const containerRef = useOutsideClick(close);
 
   return opened ? (
-    <div className='absolute left-0 top-62 border border-gray300 rounded-10 flex flex-col min-w-197 bg-white z-10'>
+    <div
+      ref={containerRef as RefObject<HTMLDivElement>}
+      className='absolute left-0 top-62 border border-gray300 rounded-10 flex flex-col min-w-197 bg-white z-10'
+    >
       {options.map((option, index) => (
         <DropdownMenuItem
           key={`${option.value}`}
