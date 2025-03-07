@@ -1,5 +1,5 @@
 /** @type {import('tailwindcss').Config} */
-import colors from './tailwind/colors';
+import colors from './src/tailwind/colors';
 
 // fontSize, spacing px 확장
 const px0_200 = Array.from({ length: 201 }, (_, i) => `${i}px`);
