@@ -1,18 +1,13 @@
 import './App.css';
-import Dropdown from './components/common/Dropdown';
+
 import MainLayout from './components/common/MainLayout';
-import Panel, {
-  PanelBody,
-  PanelCap,
-  PanelFooter,
-  PanelHeader,
-} from './components/common/Panel';
 import Tabs, {
   Tab,
   TabList,
   TabPanel,
   TabPanels,
 } from './components/common/Tabs';
+import SurveyEditor from './components/edit/SurveyEditor';
 
 function App() {
   return (
@@ -25,20 +20,7 @@ function App() {
           </TabList>
           <TabPanels>
             <TabPanel index={0}>
-              tab1 contents
-              <PanelCap>Panel Cap</PanelCap>
-              <Panel>
-                <PanelHeader>Panel Header</PanelHeader>
-                <PanelBody>Panel Body</PanelBody>
-                <PanelFooter>Panel Footer</PanelFooter>
-              </Panel>
-              <Dropdown
-                options={[
-                  { label: '옵션1', value: 1 },
-                  { label: '옵션2', value: 2 },
-                  { label: '옵션3', value: 2 },
-                ]}
-              />
+              <SurveyEditor />
             </TabPanel>
             <TabPanel index={1}>tab2 contents</TabPanel>
           </TabPanels>
