@@ -6,6 +6,8 @@ import {
   useState,
 } from 'react';
 
+import ArrowIcon from '../../assets/icons/arrow_drop_down.svg?react';
+
 interface DropdownProps<T> {
   defaultValue?: T;
   placeholder?: string;
@@ -54,7 +56,7 @@ export default function Dropdown<T>({
         onChange: handleChange,
       }}
     >
-      <div className='text-left inline-block relative'>
+      <div className='inline-block relative'>
         <DropdownButton placeholder={placeholder} />
         <DropdownMenu />
       </div>
@@ -95,7 +97,9 @@ function DropdownButton({ placeholder = 'select' }: { placeholder?: string }) {
       onClick={open}
     >
       {selectedIndex >= 0 ? options[selectedIndex].label : placeholder ?? ''}
-      <span className='absolute right-12 top-1/2 transfrom -translate-y-1/2'></span>
+      <span className='absolute right-12 top-1/2 -translate-y-1/2'>
+        <ArrowIcon />
+      </span>
     </button>
   );
 }
