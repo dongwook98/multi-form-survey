@@ -1,4 +1,5 @@
 import './App.css';
+import Dropdown from './components/common/Dropdown';
 import MainLayout from './components/common/MainLayout';
 import Panel, {
   PanelBody,
@@ -31,6 +32,13 @@ function App() {
                 <PanelBody>Panel Body</PanelBody>
                 <PanelFooter>Panel Footer</PanelFooter>
               </Panel>
+              <Dropdown
+                options={[
+                  { label: '옵션1', value: 1 },
+                  { label: '옵션2', value: 2 },
+                  { label: '옵션3', value: 2 },
+                ]}
+              />
             </TabPanel>
             <TabPanel index={1}>tab2 contents</TabPanel>
           </TabPanels>
